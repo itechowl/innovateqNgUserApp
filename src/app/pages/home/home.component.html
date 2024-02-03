@@ -1,0 +1,37 @@
+<div class="grid-container">
+  <mat-card class="pb-15">
+    <mat-card-header>
+      <div class="with-icon">
+        <mat-icon
+          aria-hidden="false"
+          aria-label="dashboard icon"
+          fontIcon="dashboard"
+        ></mat-icon>
+        Home
+      </div>
+    </mat-card-header>
+    <mat-card-content>
+      <h5>Home page description</h5>
+    </mat-card-content>
+  </mat-card>
+  <mat-grid-list cols="{{ (cardLayout | async)?.columns }}" rowHeight="2:1">
+    <mat-grid-tile
+      *ngFor="let mc of miniCardData"
+      [colspan]="(cardLayout | async)?.miniCard?.cols"
+      [rowspan]="(cardLayout | async)?.miniCard?.rows"
+    >
+      <app-mini-card
+        [title]="mc.title"
+        [value]="mc.value"
+        [icon]="mc.icon"
+        [color]="mc.color"
+      ></app-mini-card>
+    </mat-grid-tile>
+    <mat-grid-tile
+      [colspan]="(cardLayout | async)?.table?.cols"
+      [rowspan]="(cardLayout | async)?.table?.rows"
+    >
+      <app-card title="Recent Blogs"></app-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

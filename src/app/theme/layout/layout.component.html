@@ -1,0 +1,23 @@
+<mat-toolbar color="primary" class="mat-elevation-z15" dense="true">
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+    (click)="drawer.toggle()"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>innovateq User App</span>
+  <span class="example-spacer"></span>
+  <app-header />
+</mat-toolbar>
+<mat-drawer-container class="example-container mat-elevation-z15">
+  <mat-drawer #drawer mode="side" opened class="mat-elevation-z15 sidenav-left">
+    <app-sidebar />
+  </mat-drawer>
+  <mat-drawer-content class="mat-elevation-z15">
+    <div>
+      <router-outlet />
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>
